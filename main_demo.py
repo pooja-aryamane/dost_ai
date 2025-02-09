@@ -8,19 +8,6 @@ from openai import OpenAI
 from langchain_openai import ChatOpenAI
 import json
 
-f = open('config.json')
-config = json.load(f)
-
-# Create the model object
-llm = ChatOpenAI(
-    model="gpt-4o-audio-preview",  # Specifying the model
-    temperature=0,  # Controls randomness in the output
-    max_tokens=None,  # Unlimited tokens in output (or specify a max if needed)
-    timeout=None,  # Optional: Set a timeout for requests
-    max_retries=2,  # Number of retries for failed requests,
-    openai_api_key=config['api_key']
-)
-
 st.set_page_config(page_title='sunlo', page_icon=":globe_with_meridians:", initial_sidebar_state="expanded", layout='wide') 
 
 # st.markdown("""
@@ -36,9 +23,22 @@ st.set_page_config(page_title='sunlo', page_icon=":globe_with_meridians:", initi
 st.title("Miles Apart, Stay Informed—Accurate Medical Updates for Your Family.")
 st.write("Welcome! This is a tool that helps you keep a record of your medical conversations without missing any details. Just record your conversation, click the button below and we will do the rest.")
 
+api_key = st.text_input(label='Enter API Key Here:', type='password')
 audio_value = st.audio_input("When you're ready, click the record button and start speaking!")
 
+
 if st.button("Listen and generate report"):
+
+    # Create the model object
+    # llm = ChatOpenAI(
+    #     model="gpt-4o-audio-preview",  # Specifying the model
+    #     temperature=0,  # Controls randomness in the output
+    #     max_tokens=None,  # Unlimited tokens in output (or specify a max if needed)
+    #     timeout=None,  # Optional: Set a timeout for requests
+    #     max_retries=2,  # Number of retries for failed requests,
+    #     openai_api_key=api_key
+    # )
+
     # content = audio_value.read()
     # encoded_string = base64.b64encode(content).decode()
     #the path of your audio file
