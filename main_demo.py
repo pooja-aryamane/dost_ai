@@ -8,7 +8,7 @@ from openai import OpenAI
 from langchain_openai import ChatOpenAI
 import json
 
-st.set_page_config(page_title='sunlo', page_icon=":globe_with_meridians:", initial_sidebar_state="expanded", layout='wide') 
+st.set_page_config(page_title='insync-ai', page_icon=":earth_asia:", initial_sidebar_state="expanded", layout='wide') 
 
 # st.markdown("""
 #     <style>
@@ -20,7 +20,7 @@ st.set_page_config(page_title='sunlo', page_icon=":globe_with_meridians:", initi
 #     </style>
 # """, unsafe_allow_html=True)
 
-st.title("Miles Apart, Stay Informed—Accurate Medical Updates for Your Family.")
+st.title("Stay connected, Stay Informed — Keeping your Family In-Sync with Medical Care, No Matter the Distance")
 st.write("Welcome! This is a tool that helps you keep a record of your medical conversations without missing any details. Just record your conversation, click the button below and we will do the rest.")
 
 api_key = st.text_input(label='Enter API Key Here:', type='password')
