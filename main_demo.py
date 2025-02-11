@@ -20,14 +20,14 @@ st.set_page_config(page_title='insync-ai', page_icon=":earth_asia:", initial_sid
 #     </style>
 # """, unsafe_allow_html=True)
 
-st.title("Stay connected, Stay Informed — Keeping your Family In-Sync with Medical Care, No Matter the Distance")
-st.write("Welcome! This is a tool that helps you keep a record of your medical conversations without missing any details. Just record your conversation, click the button below and we will do the rest.")
+st.header("Keep your Family In-Sync with Medical Care, No Matter the Distance")
+st.write("Let's get your conversation in writing. Click the button below, and we will do the rest.")
 
 api_key = st.text_input(label='Enter API Key Here:', type='password')
 audio_value = st.audio_input("When you're ready, click the record button and start speaking!")
 
 
-if st.button("Listen and generate report"):
+if st.button("Start Listening"):
 
     #Create the model object
     llm = ChatOpenAI(
@@ -50,17 +50,18 @@ if st.button("Listen and generate report"):
         Doctor : 
         Patient : 
         With each line tagged according to the speaker. Both this should all be in separate lines according to the conversation. Return the transcription in a markdown format. \
-        Your summary should be in the form of a medical report and should have this format -> 
+        
+        Your summary should be very detailed and in the form of a medical report and should have this format -> 
         
         Todays Date : 
         Patient Name : 
         Patient DOB : 
 
-        Introduction : This should be a brief introduction of the patient and the reason for the visit (paragraph)
-        Medical History : This should include any past medical history that the patient has (paragraph)
-        Diagnosis : This should include the diagnosis of the patient (paragraph)
-        Treatment : This should include the treatment plan for the patient (paragraph)
-        
+        Reason for visit : Detailed Paragraph
+        Medical History : Medical History/Lifestyle (paragraph)
+        Diagnosis : Diagnosis details (paragraph)
+        Next Steps and Treatment : Treatment plan for the patient (paragraph)
+          
         Return the summary report in a markdown format. 
 
         You might not find all the details in every conversation. In that case, just write NA. Don't try to make stuff up.
@@ -87,18 +88,21 @@ if st.button("Listen and generate report"):
 
     # try:
     result = json.loads(json_str)
+
+    # result = {'summary':'This is a summary',
+    #           'transcription': 'This is a transcription.'}
     if "summary" in result and "transcription" in result:
 
-        # t, s  = st.columns(2)
+        t, s  = st.tabs(['Summary','Detailed Transcription'])
         # with t:
-        with st.container(height = 500):
-            st.subheader("Your Conversation:")
-            transcription = result['transcription']
-            st.markdown(transcription)
-        with st.container(height = 300): 
-            st.subheader("Report:")
+        with t:
+            #st.subheader("Your Conversation:")
             summary = result['summary']
             st.markdown(summary)
+        with s: 
+            #st.subheader("Report:")
+            transcription = result['transcription']
+            st.markdown(transcription)
     else:
         st.error("Something went wrong. Please try again later.",icon="🚨")
     # except:
