@@ -21,13 +21,13 @@ st.set_page_config(page_title='insync-ai', page_icon=":earth_asia:", initial_sid
 # """, unsafe_allow_html=True)
 
 st.header("Keep your Family In-Sync with Medical Care, No Matter the Distance")
-st.write("Let's get your conversation in writing. Click the button below, and we will do the rest.")
+st.write("AI powered medical record summaries")
 
 api_key = st.text_input(label='Enter API Key Here:', type='password')
 audio_value = st.audio_input("When you're ready, click the record button and start speaking!")
 
 
-if st.button("Start Listening"):
+if st.button("Generate Summary"):
 
     #Create the model object
     llm = ChatOpenAI(
