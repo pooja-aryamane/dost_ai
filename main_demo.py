@@ -20,8 +20,11 @@ st.set_page_config(page_title='insync-ai', page_icon=":earth_asia:", initial_sid
 #     </style>
 # """, unsafe_allow_html=True)
 
-st.header("Keep your Family In-Sync with Medical Care, No Matter the Distance")
-st.write("AI powered medical record summaries")
+st.markdown("<h2 style='text-align: center; color: grey;'>AI Powered Medical Summaries</h2>", unsafe_allow_html=True)
+st.markdown("<h3 style='text-align': center; '>Ensure accuracy when it comes to medical appointments. Record your conversation, and generate an accurate summary</h3>", unsafe_allow_html=True)
+
+#st.header("AI Powered Medical Summaries Keep your Family In-Sync with Medical Care, No Matter the Distance")
+#st.write("Ensure accuracy when it comes to medical appointments. Record your conversation, and generate an accurate summary")
 
 api_key = st.text_input(label='Enter API Key Here:', type='password')
 audio_value = st.audio_input("When you're ready, click the record button and start speaking!")
