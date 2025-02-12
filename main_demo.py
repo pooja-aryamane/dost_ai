@@ -20,8 +20,8 @@ st.set_page_config(page_title='insync-ai', page_icon=":earth_asia:", initial_sid
 #     </style>
 # """, unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: center; color: grey;'>AI Powered Medical Summaries</h2>", unsafe_allow_html=True)
-st.markdown("<h3 style='text-align': center; '>Ensure accuracy when it comes to medical appointments. Record your conversation, and generate an accurate summary</h3>", unsafe_allow_html=True)
+st.markdown("<h2 style='text-align: center; color: grey;'>AI Powered Medical Summaries - Stay Informed and InSync</h2>", unsafe_allow_html=True)
+st.markdown("<h5 style='text-align': center; '>Record, track, and share accurate medical reports with loved ones. Just press record and converse with your doctor as normal, we will do the rest.</h5>", unsafe_allow_html=True)
 
 #st.header("AI Powered Medical Summaries Keep your Family In-Sync with Medical Care, No Matter the Distance")
 #st.write("Ensure accuracy when it comes to medical appointments. Record your conversation, and generate an accurate summary")
