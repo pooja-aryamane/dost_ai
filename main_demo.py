@@ -89,25 +89,26 @@ if st.button("Generate Summary"):
 
     json_str = s[s.find('{'):s.rfind("}")+1] #find the first { and the last } and get the string in between
 
-    # try:
-    result = json.loads(json_str)
+    try:
+        result = json.loads(json_str)
 
-    # result = {'summary':'This is a summary',
-    #           'transcription': 'This is a transcription.'}
-    if "summary" in result and "transcription" in result:
+        # result = {'summary':'This is a summary',
+        #           'transcription': 'This is a transcription.'}
+        if "summary" in result and "transcription" in result:
 
-        t, s  = st.tabs(['Summary','Detailed Transcription'])
-        # with t:
-        with t:
-            #st.subheader("Your Conversation:")
-            summary = result['summary']
-            st.markdown(summary)
-        with s: 
-            #st.subheader("Report:")
-            transcription = result['transcription']
-            st.markdown(transcription)
-    else:
-        st.error("Something went wrong. Please try again later.",icon="🚨")
-    # except:
-    #     st.error("Something went wrong. Please try again later.",icon="🚨")
-
+            t, s  = st.tabs(['Summary','Detailed Transcription'])
+            # with t:
+            with t:
+                #st.subheader("Your Conversation:")
+                summary = result['summary']
+                st.markdown(summary)
+            with s: 
+                #st.subheader("Report:")
+                transcription = result['transcription']
+                st.markdown(transcription)
+        else:
+            st.error("Something went wrong. Please try again.",icon="🚨")
+    except:
+        st.error("Audio unclear! Please re-record the audio, and try again",icon="🚨")
+        st.write(s)
+        #this HAS to be real time lol
